@@ -1,0 +1,27 @@
+<phpunit
+        bootstrap="vendor/autoload.php"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        stopOnError="true"
+        stopOnFailure="true"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        stopOnRisky="false"
+        verbose="true">
+    <testsuites>
+        <testsuite name="Testsuite">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+<!--    <logging>-->
+<!--        <log type="coverage-html" target="/static/report" lowUpperBound="35" highLowerBound="70"/>-->
+<!--        <log type="coverage-clover" target="/static/coverage.xml"/>-->
+<!--        <log type="coverage-php" target="/static/coverage.serialized"/>-->
+<!--        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>-->
+<!--        <log type="junit" target="/static/logfile.xml" logIncompleteSkipped="false"/>-->
+<!--        &lt;!&ndash;        <log type="testdox-html" target="/static/testdox.html"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <log type="testdox-text" target="/static/testdox.txt"/>&ndash;&gt;-->
+<!--    </logging>-->
+</phpunit>

@@ -1,0 +1,34 @@
+{
+    "name": "linnzh/utils",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Linnzh",
+            "email": "reg.lynnzh@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3"
+    },
+    "autoload": {
+        "files": [
+            "src/Functions.php"
+        ],
+        "psr-4": {
+            "Linnzh\\Utils\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Linnzh\\Utils\\Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5.x-dev"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}

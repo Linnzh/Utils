@@ -30,4 +30,45 @@ class TreeNode
         $this->left = null;
         $this->right = null;
     }
+
+    public function traverse(TreeNode $root, array &$result = []): array
+    {
+        // 前序遍历
+        $result[] = $root->value;
+        $root->left && $this->traverse($root->left, $result);
+
+        // 中序遍历
+
+        $root->right && $this->traverse($root->right, $result);
+        // 后序遍历
+        return $result;
+    }
+
+    /**
+     * 前序遍历
+     * @param TreeNode $root
+     * @param array $result
+     * @return array
+     */
+    public function preorderTraverse(TreeNode $root, array &$result = []): array
+    {
+        $result[] = $root->value;
+        $root->left && $this->preorderTraverse($root->left, $result);
+        $root->right && $this->preorderTraverse($root->right, $result);
+        return $result;
+    }
+
+    /**
+     * 后序遍历
+     * @param TreeNode $root
+     * @param array $result
+     * @return array
+     */
+    public function postorderTraverse(TreeNode $root, array &$result = []): array
+    {
+        $root->left && $this->postorderTraverse($root->left, $result);
+        $root->right && $this->postorderTraverse($root->right, $result);
+        $result[] = $root->value;
+        return $result;
+    }
 }

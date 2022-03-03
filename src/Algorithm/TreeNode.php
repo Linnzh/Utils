@@ -45,7 +45,7 @@ class TreeNode
     }
 
     /**
-     * 前序遍历
+     * 前序遍历：指先访问根，然后访问子树的遍历方式
      * @param TreeNode $root
      * @param array $result
      * @return array
@@ -59,7 +59,7 @@ class TreeNode
     }
 
     /**
-     * 后序遍历
+     * 后序遍历：指先访问子树，然后访问根的遍历方式
      * @param TreeNode $root
      * @param array $result
      * @return array

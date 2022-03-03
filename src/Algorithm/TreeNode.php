@@ -88,4 +88,30 @@ class TreeNode
         $result[] = $root->value;
         return $result;
     }
+
+    /**
+     * 最大路径和问题
+     * 路径被定义为一条从树中任意节点出发，达到任意节点的序列
+     * 该路径至少包含一个节点，且不一定经过根节点
+     *
+     * 分别计算左子树和右子树的最大路径和，取大值，再加上自己的值
+     *
+     * @param TreeNode|null $root
+     * @param int $ans
+     * @return int|mixed
+     */
+    public function oneSideMax(?TreeNode $root, int &$ans = 0)
+    {
+        if(!$root) {
+            return 0;
+        }
+
+        $left = max(0, $this->oneSideMax($root->left, $ans));
+        $right = max(0, $this->oneSideMax($root->right, $ans));
+
+        // 后序遍历：决定是否加上父节点的值
+        $ans = max($ans, $left + $right + $root->value);
+
+        return max($left, $right) + $root->value;
+    }
 }

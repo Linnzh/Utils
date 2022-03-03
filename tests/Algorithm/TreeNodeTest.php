@@ -149,4 +149,40 @@ class TreeNodeTest extends TestCase
         $expected = ['A', 'C', 'E', 'D', 'B', 'H', 'I', 'G', 'F'];
         $this->assertEquals($expected, $result, "\n实际值：" . implode(' ', $result) . "\n");
     }
+
+    public function testOneSideMax(): void
+    {
+        $node1 = new TreeNode(1);
+        $node2 = new TreeNode(2);
+        $node3 = new TreeNode(3);
+        $node4 = new TreeNode(4);
+        $node5 = new TreeNode(5);
+
+        $node2->left = $node3;
+        $node2->right = $node4;
+        $node1->left = $node2;
+        $node1->right = $node5;
+
+        $result = 0;
+        $node1->oneSideMax($node1, $result);
+        $expected = 12;
+        $this->assertEquals($expected, $result, "\n实际值：{$result}\n");
+
+        // 该条路径不经过根节点
+        $node1 = new TreeNode(-10);
+        $node2 = new TreeNode(9);
+        $node3 = new TreeNode(20);
+        $node4 = new TreeNode(15);
+        $node5 = new TreeNode(7);
+
+        $node3->left = $node4;
+        $node3->right = $node5;
+        $node1->left = $node2;
+        $node1->right = $node3;
+
+        $result = 0;
+        $node1->oneSideMax($node1, $result);
+        $expected = 42;
+        $this->assertEquals($expected, $result, "\n实际值：{$result}\n");
+    }
 }

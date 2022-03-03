@@ -59,6 +59,23 @@ class TreeNode
     }
 
     /**
+     * 中序遍历：指先访问左（右）子树，然后访问根，最后访问右（左）子树的遍历方式
+     * @param TreeNode $root
+     * @param array $result
+     * @return array
+     */
+    public function inorderTraverse(TreeNode $root, array &$result = []): array
+    {
+        $root->left && $this->inorderTraverse($root->left, $result);
+
+        $result[] = $root->value;
+
+        $root->right && $this->inorderTraverse($root->right, $result);
+
+        return $result;
+    }
+
+    /**
      * 后序遍历：指先访问子树，然后访问根的遍历方式
      * @param TreeNode $root
      * @param array $result

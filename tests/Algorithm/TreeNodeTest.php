@@ -115,4 +115,38 @@ class TreeNodeTest extends TestCase
         $expected = ['D', 'E', 'B', 'F', 'C', 'A'];
         $this->assertEquals($expected, $result);
     }
+
+    public function testInorderTraverse(): void
+    {
+        $node1 = new TreeNode('F');
+        $node2 = new TreeNode('B');
+        $node3 = new TreeNode('G');
+        $node4 = new TreeNode('A');
+        $node5 = new TreeNode('D');
+        $node6 = new TreeNode('I');
+        $node7 = new TreeNode('C');
+        $node8 = new TreeNode('E');
+        $node9 = new TreeNode('H');
+
+        $node5->left = $node7;
+        $node5->right = $node8;
+        $node6->left = $node9;
+        $node2->left = $node4;
+        $node2->right = $node5;
+        $node3->right = $node6;
+        $node1->left = $node2;
+        $node1->right = $node3;
+
+        $result = $node1->inorderTraverse($node1);
+        $expected = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+        $this->assertEquals($expected, $result, "\n实际值：" . implode(' ', $result) . "\n");
+
+        $result = $node1->preorderTraverse($node1);
+        $expected = ['F', 'B', 'A', 'D', 'C', 'E', 'G', 'I', 'H'];
+        $this->assertEquals($expected, $result, "\n实际值：" . implode(' ', $result) . "\n");
+
+        $result = $node1->postorderTraverse($node1);
+        $expected = ['A', 'C', 'E', 'D', 'B', 'H', 'I', 'G', 'F'];
+        $this->assertEquals($expected, $result, "\n实际值：" . implode(' ', $result) . "\n");
+    }
 }

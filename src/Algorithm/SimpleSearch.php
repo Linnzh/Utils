@@ -10,13 +10,13 @@ class SimpleSearch
      * 搜索的数组
      * @var array
      */
-    public $data = [];
+    public array $data = [];
 
     /**
      * 搜索目标值
      * @var mixed
      */
-    public $target;
+    public mixed $target;
 
     public const ERROR = -1;
 

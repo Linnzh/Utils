@@ -52,6 +52,40 @@
 
 ```
 
+#### 复杂理解
+
+在事件分发器案例中，EventDispatcher 充当一个具体中介者，并定义了一个通用接口`ObserverInterface`（其定义了组件的行为`update()`）。然后在不同的组件如 User、Logger、UserRepository、OnBoardingNotification 实现这个通用接口，在客户端层面，所有行为通过事件分发器进行：
+
+```php
+    public function testExample(): void
+    {
+        $eventDispatcher = EventDispatcher::getInstance();
+        echo PHP_EOL;
+
+        $repository = new UserRepository();
+        $eventDispatcher->attach($repository, 'facebook:update');
+
+        $logger = new Logger(__DIR__ . '/log.txt');
+        $eventDispatcher->attach($logger, '*');
+
+        $onBoarding = new OnBoardingNotification('test@example.com');
+        $eventDispatcher->attach($onBoarding, 'users:created');
+
+        $repository->initialize(__DIR__ . 'users.csv');
+
+        $user = $repository->createUser([
+            'name' => 'Linnzh',
+            'email' => 'linnzh@example.com',
+        ]);
+
+        $user->delete();
+
+        $this->assertEquals(true, true);
+    }
+
+```
+
+
 
 
 ### 问题

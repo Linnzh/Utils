@@ -24,9 +24,7 @@ class SimpleSorting
                     $smallest = $j;
                 }
             }
-            $tmp = $data[$i];
-            $data[$i] = $data[$smallest];
-            $data[$smallest] = $tmp;
+            list($data[$i], $data[$smallest]) = [$data[$smallest], $data[$i]];
         }
 
         return $data;

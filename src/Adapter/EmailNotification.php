@@ -11,11 +11,11 @@ class EmailNotification implements NotificationTarget
 
     /**
      * EmailNotification constructor.
-     * @param string $email
+     * @param string|null $email
      */
-    public function __construct(string $email)
+    public function __construct(?string $email)
     {
-        $this->email = $email;
+        $email && $this->email = $email;
     }
 
     public function send(string $title, string $message): void

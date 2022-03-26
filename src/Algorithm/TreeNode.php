@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Algorithm;
-
 
 /**
  * 二叉树节点
@@ -46,8 +46,10 @@ class TreeNode
 
     /**
      * 前序遍历：指先访问根，然后访问子树的遍历方式
+     *
      * @param TreeNode $root
-     * @param array $result
+     * @param array    $result
+     *
      * @return array
      */
     public function preorderTraverse(TreeNode $root, array &$result = []): array
@@ -55,13 +57,16 @@ class TreeNode
         $result[] = $root->value;
         $root->left && $this->preorderTraverse($root->left, $result);
         $root->right && $this->preorderTraverse($root->right, $result);
+
         return $result;
     }
 
     /**
      * 中序遍历：指先访问左（右）子树，然后访问根，最后访问右（左）子树的遍历方式
+     *
      * @param TreeNode $root
-     * @param array $result
+     * @param array    $result
+     *
      * @return array
      */
     public function inorderTraverse(TreeNode $root, array &$result = []): array
@@ -77,8 +82,10 @@ class TreeNode
 
     /**
      * 后序遍历：指先访问子树，然后访问根的遍历方式
+     *
      * @param TreeNode $root
-     * @param array $result
+     * @param array    $result
+     *
      * @return array
      */
     public function postorderTraverse(TreeNode $root, array &$result = []): array
@@ -86,6 +93,7 @@ class TreeNode
         $root->left && $this->postorderTraverse($root->left, $result);
         $root->right && $this->postorderTraverse($root->right, $result);
         $result[] = $root->value;
+
         return $result;
     }
 
@@ -97,12 +105,13 @@ class TreeNode
      * 分别计算左子树和右子树的最大路径和，取大值，再加上自己的值
      *
      * @param TreeNode|null $root
-     * @param int $ans
+     * @param int           $ans
+     *
      * @return int|mixed
      */
     public function oneSideMax(?TreeNode $root, int &$ans = 0)
     {
-        if(!$root) {
+        if (!$root) {
             return 0;
         }
 

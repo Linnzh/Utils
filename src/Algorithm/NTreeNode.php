@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Algorithm;
-
 
 /**
  * N 叉树节点
@@ -28,31 +28,39 @@ class NTreeNode
     public function traverse(NTreeNode $root, array &$result = []): array
     {
         $result[] = $root->value;
+
         foreach ($root->children as $child) {
             $this->traverse($child, $result);
         }
+
         return $result;
     }
 
     /**
      * 前序遍历：指先访问根，然后访问子树的遍历方式
+     *
      * @param NTreeNode $root
-     * @param array $result
+     * @param array     $result
+     *
      * @return array
      */
     public function preorderTraverse(NTreeNode $root, array &$result = []): array
     {
         $result[] = $root->value;
+
         foreach ($root->children as $child) {
             $this->preorderTraverse($child, $result);
         }
+
         return $result;
     }
 
     /**
      * 后序遍历：指先访问子树，然后访问根的遍历方式
+     *
      * @param NTreeNode $root
-     * @param array $result
+     * @param array     $result
+     *
      * @return array
      */
     public function postorderTraverse(NTreeNode $root, array &$result = []): array
@@ -61,6 +69,7 @@ class NTreeNode
             $this->postorderTraverse($child, $result);
         }
         $result[] = $root->value;
+
         return $result;
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Bridge;
-
 
 class TV implements DeviceCommonInterface
 {
     private bool $on = false;
+
     private int $volume = 0;
 
     public function isEnabled(): bool
@@ -36,6 +37,6 @@ class TV implements DeviceCommonInterface
 
     public function __toString()
     {
-        return "这里是 TV （电视机），" . ($this->on ? '可用' : '不可用') . "，当前音量：{$this->volume}\n";
+        return '这里是 TV （电视机），' . ($this->on ? '可用' : '不可用') . "，当前音量：{$this->volume}\n";
     }
 }

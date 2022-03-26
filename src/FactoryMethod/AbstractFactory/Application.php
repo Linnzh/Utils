@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\FactoryMethod\AbstractFactory;
-
 
 use Linnzh\Utils\FactoryMethod\Button;
 
 class Application
 {
     private Button $button;
+
     private Checkbox $checkbox;
 
     public function __construct(GUIFactory $factory)

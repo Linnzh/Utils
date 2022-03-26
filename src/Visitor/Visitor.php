@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Visitor;
-
 
 /**
  * The Visitor interface declares a set of visiting methods for each of the

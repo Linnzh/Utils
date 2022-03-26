@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Bridge;
-
 
 class BasicRemoteController implements RemoteControllerInterface
 {
@@ -15,7 +15,7 @@ class BasicRemoteController implements RemoteControllerInterface
 
     public function power(): void
     {
-        echo '当前设备状态：' . ($this->device->isEnabled() ? '开启' : '关闭') . "，正在为您"  . ($this->device->isEnabled() ? '关机' : '开机') . "\n";
+        echo '当前设备状态：' . ($this->device->isEnabled() ? '开启' : '关闭') . '，正在为您' . ($this->device->isEnabled() ? '关机' : '开机') . "\n";
         $this->device->isEnabled() ? $this->device->disable() : $this->device->enable();
     }
 

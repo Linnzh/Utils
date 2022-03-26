@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Adapter;
-
 
 class WeiboApi
 {
     private string $userName;
+
     private string $appKey;
 
     public function __construct(string $userName, string $appKey)

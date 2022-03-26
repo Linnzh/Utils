@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\TwoSum;
-
 
 /**
  * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
@@ -16,15 +16,17 @@ namespace Linnzh\Utils\Leetcode\TwoSum;
 class Solution
 {
     /**
-     * @param Integer[] $nums
-     * @param Integer $target
-     * @return Integer[]
+     * @param int[] $nums
+     * @param int   $target
+     *
+     * @return int[]
      */
     public function twoSum(array $nums, int $target): array
     {
         $result = [];
 
         $count = count($nums);
+
         foreach ($nums as $i => $iValue) {
             if ($i === $count - 1) {
                 return $result;

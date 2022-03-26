@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Adapter;
-
 
 /**
  * @Adapter
@@ -10,6 +10,7 @@ namespace Linnzh\Utils\Adapter;
 class WeiboNotificationAdapter implements NotificationTarget
 {
     private WeiboApi $api;
+
     private string $chatUser;
 
     public function __construct(WeiboApi $api, string $chatUser)

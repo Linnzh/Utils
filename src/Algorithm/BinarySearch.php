@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Algorithm;
-
 
 /**
  * 二分查找法
@@ -29,17 +29,21 @@ class BinarySearch
     {
         $left = 0;
         $right = count($list) - 1;
-        while($left <= $right) {
+
+        while ($left <= $right) {
             $mid = $left + floor(($right - $left) / 2);
+
             if ($list[$mid] === $target) {
                 return $mid;
             }
+
             if ($list[$mid] < $target) {
                 $left = $mid + 1;
             } elseif ($list[$mid] > $target) {
                 $right = $mid - 1;
             }
         }
+
         return -1;
     }
 
@@ -47,8 +51,10 @@ class BinarySearch
     {
         $left = 0;
         $right = count($list) - 1;
-        while($left <= $right) {
+
+        while ($left <= $right) {
             $mid = $left + floor(($right - $left) / 2);
+
             if ($list[$mid] === $target) {
                 $right = $mid - 1;
             } elseif ($list[$mid] < $target) {
@@ -57,9 +63,11 @@ class BinarySearch
                 $right = $mid - 1;
             }
         }
+
         if ($left >= count($list) || $list[$left] !== $target) {
-            return  -1;
+            return -1;
         }
+
         return $left;
     }
 
@@ -67,8 +75,10 @@ class BinarySearch
     {
         $left = 0;
         $right = count($list) - 1;
-        while($left <= $right) {
+
+        while ($left <= $right) {
             $mid = $left + floor(($right - $left) / 2);
+
             if ($list[$mid] === $target) {
                 $left = $mid + 1;
             } elseif ($list[$mid] < $target) {
@@ -77,9 +87,11 @@ class BinarySearch
                 $right = $mid - 1;
             }
         }
+
         if ($right < 0 || $list[$right] !== $target) {
-            return  -1;
+            return -1;
         }
+
         return $right;
     }
 }

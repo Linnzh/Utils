@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\ChainOfResponsibility;
-
 
 /**
  * This Concrete Middleware checks whether there are too many failed login

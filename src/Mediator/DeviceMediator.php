@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Mediator;
 
-
 class DeviceMediator
 {
-
     public const SPEAKER = 1;
+
     public const CAMERA = 2;
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Flyweight;
-
 
 class MaterialPool
 {
@@ -22,10 +22,41 @@ class MaterialPool
         $this->materials[] = new Material($name, $description, $category);
     }
 
+    public function findOneMaterial(array $query): ?Material
+    {
+        foreach ($this->materials as $material) {
+            if ($material->match($query)) {
+                return $material;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param array $query
+     *
+     * @return array|Material[]
+     */
+    public function findManyMaterial(array $query): array|Material
+    {
+        $result = [];
+
+        foreach ($this->materials as $material) {
+            if ($material->match($query)) {
+                $result[] = $material;
+            }
+        }
+
+        return $result;
+    }
+
     /**
      * 缓存已经出现过的对象
+     *
      * @param string $supplier
-     * @param int $manufactureYear
+     * @param int    $manufactureYear
+     *
      * @return MaterialCategoryFlyweight
      */
     private function getCategory(string $supplier, int $manufactureYear): MaterialCategoryFlyweight
@@ -42,30 +73,5 @@ class MaterialPool
     private function getKey(array $data): string
     {
         return md5(implode('_', $data));
-    }
-
-    public function findOneMaterial(array $query): ?Material
-    {
-        foreach ($this->materials as $material) {
-            if ($material->match($query)) {
-                return $material;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * @param array $query
-     * @return array|Material[]
-     */
-    public function findManyMaterial(array $query): array|Material
-    {
-        $result = [];
-        foreach ($this->materials as $material) {
-            if ($material->match($query)) {
-                $result[] = $material;
-            }
-        }
-        return $result;
     }
 }

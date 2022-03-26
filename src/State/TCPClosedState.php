@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\State;
 
@@ -30,6 +31,7 @@ class TCPClosedState extends TCPState
         if (!self::$instance instanceof self) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 

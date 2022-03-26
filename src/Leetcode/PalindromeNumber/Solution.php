@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\PalindromeNumber;
-
 
 /**
  * 给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
@@ -17,8 +17,9 @@ namespace Linnzh\Utils\Leetcode\PalindromeNumber;
 class Solution
 {
     /**
-     * @param Integer $x
-     * @return Boolean
+     * @param int $x
+     *
+     * @return bool
      */
     public function isPalindrome(int $x): bool
     {
@@ -26,7 +27,8 @@ class Solution
             return false;
         }
 
-        $result = strrev((string)$x);
-        return ((string)$x) === $result;
+        $result = strrev((string) $x);
+
+        return ((string) $x) === $result;
     }
 }

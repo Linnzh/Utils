@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Singleton;
-
 
 /**
  * @Singleton
@@ -31,6 +31,7 @@ class Singleton
         if (!self::$instance instanceof self) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 }

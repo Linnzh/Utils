@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Composite;
-
 
 class CompanyComposite extends AbstractCompany
 {
@@ -36,9 +36,11 @@ class CompanyComposite extends AbstractCompany
     public function execute(): string
     {
         $result = [];
+
         foreach ($this->children as $child) {
             $result[] = $child->execute();
         }
+
         return implode("\n", $result);
     }
 

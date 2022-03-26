@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Visitor;
-
 
 /**
  * The Component interface declares a method of accepting visitor objects.

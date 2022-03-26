@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Builder;
-
 
 class CarBuilder implements Builder
 {
     private int $catType;
+
     private int $seatNum;
+
     private Engine $engine;
+
     private GPSNavigator $navigator;
 
     public function __toString()

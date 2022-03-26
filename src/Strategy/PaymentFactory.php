@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Strategy;
-
 
 class PaymentFactory
 {
@@ -10,6 +10,7 @@ class PaymentFactory
      * Get a payment method by its ID.
      *
      * @param string $id
+     *
      * @return PaymentMethodInterface
      */
     public static function getPaymentMethod(string $id): PaymentMethodInterface

@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\FactoryMethod;
 
-
 class HTMLButton implements Button
 {
-
     public function render(): void
     {
         echo "您渲染了一个 HTML 按钮！\n";

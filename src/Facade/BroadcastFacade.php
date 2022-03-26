@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Facade;
-
 
 use Linnzh\Utils\Adapter\EmailNotification;
 use Linnzh\Utils\Adapter\WeiboApi;
@@ -24,10 +24,12 @@ class BroadcastFacade
         if ($type === 'weibo') {
             $weiboApi = new WeiboApi($this->company->getName(), 'appKey');
         }
+
         foreach ($this->company->getUsers() as $user) {
             if ($type === 'email') {
                 $notification = new EmailNotification($user->getEmail());
             }
+
             if ($type === 'weibo' && isset($weiboApi)) {
                 $notification = new WeiboNotificationAdapter($weiboApi, $user->getName());
             }

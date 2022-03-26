@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\ChainOfResponsibility;
-
 
 /**
  * This Concrete Middleware checks whether a user associated with the request
@@ -12,7 +12,7 @@ class RoleCheckMiddleware extends Middleware
 {
     public function check(string $email, string $password): bool
     {
-        if ($email === "admin@example.com") {
+        if ($email === 'admin@example.com') {
             echo "RoleCheckMiddleware: Hello, 管理员！\n";
 
             return true;

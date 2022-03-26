@@ -1,24 +1,26 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Algorithm;
 
-
 class SimpleSearch
 {
+    public const ERROR = -1;
+
     /**
      * 搜索的数组
+     *
      * @var array
      */
     public array $data = [];
 
     /**
      * 搜索目标值
+     *
      * @var mixed
      */
     public mixed $target;
-
-    public const ERROR = -1;
 
     public function __construct(array $data = [], $target = '')
     {
@@ -35,8 +37,10 @@ class SimpleSearch
      * 反之中间值在目标值右边，则移动右边至中间
      * 直至找到与目标值相等的中间值
      * 或者左边等于右边
+     *
      * @param array $data
      * @param $target
+     *
      * @return int
      */
     public static function binarySearch(array $data, $target): int
@@ -44,19 +48,21 @@ class SimpleSearch
         $start = 0;
         $end = count($data) - 1;
 
-        $middle = (int)floor(($start + $end) / 2);
+        $middle = (int) floor(($start + $end) / 2);
 
-        while($start <= $end) {
-            if($data[$middle] === $target) {
+        while ($start <= $end) {
+            if ($data[$middle] === $target) {
                 return $middle;
             }
-            if($data[$middle] < $target) {
+
+            if ($data[$middle] < $target) {
                 $start = $middle + 1;
             } else {
                 $end = $middle - 1;
             }
-            $middle = (int)floor(($start + $end) / 2);
+            $middle = (int) floor(($start + $end) / 2);
         }
+
         return self::ERROR;
     }
 
@@ -69,23 +75,26 @@ class SimpleSearch
      * @param $target
      * @param int $start
      * @param int $end
+     *
      * @return int
      */
     public static function recursiveBinarySearch(array $data, $target, int $start, int $end): int
     {
-        if($start > $end) {
+        if ($start > $end) {
             return self::ERROR;
         }
-        $middle = (int)floor(($start + $end) / 2);
+        $middle = (int) floor(($start + $end) / 2);
 
-        if($data[$middle] === $target) {
+        if ($data[$middle] === $target) {
             return $middle;
         }
-        if($data[$middle] < $target) {
+
+        if ($data[$middle] < $target) {
             $start = $middle + 1;
         } else {
             $end = $middle - 1;
         }
+
         return self::recursiveBinarySearch($data, $target, $start, $end);
     }
 }

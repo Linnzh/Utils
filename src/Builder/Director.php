@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Builder;
-
 
 /**
  * @Director 生成不同配置的实例，相当于一份配置清单

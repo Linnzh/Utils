@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\FactoryMethod\SocialNetwork;
 
-
 class LinkedInConnector implements SocialNetworkConnector
 {
-
     private string $password;
+
     private string $email;
 
     public function __construct(string $email, string $password)

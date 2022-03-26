@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Iterator;
-
 
 class CsvIterator implements \Iterator
 {
@@ -13,7 +13,7 @@ class CsvIterator implements \Iterator
      *
      * @var resource
      */
-    protected $filePointer = null;
+    protected $filePointer;
 
     /**
      * The current element, which is returned on each iteration.
@@ -40,8 +40,8 @@ class CsvIterator implements \Iterator
      * The constructor tries to open the CSV file. It throws an exception on
      * failure.
      *
-     * @param string $file The CSV file.
-     * @param string $delimiter The delimiter.
+     * @param string $file      the CSV file
+     * @param string $delimiter the delimiter
      *
      * @throws \Exception
      */

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Visitor;
-
 
 class Department implements Entity
 {
@@ -32,6 +32,7 @@ class Department implements Entity
     public function getCost(): float
     {
         $cost = 0;
+
         foreach ($this->employees as $employee) {
             $cost += $employee->getSalary();
         }

@@ -1,10 +1,9 @@
 <?php
 
-/**
- * 常用工具函数
- */
+declare(strict_types=1);
 if (!function_exists('max')) {
-    function max(mixed $left, mixed $right) {
+    function max(mixed $left, mixed $right)
+    {
         return $left >= $right ? $left : $right;
     }
 }

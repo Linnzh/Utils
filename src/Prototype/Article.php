@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Prototype;
-
 
 /**
  * @Prototype
@@ -10,13 +10,18 @@ namespace Linnzh\Utils\Prototype;
 class Article
 {
     private string $title;
+
     private string $content;
+
     private array $comments = [];
+
     private \DateTime $createAt;
+
     private Author $author;
 
     /**
      * Article constructor.
+     *
      * @param string $title
      * @param string $content
      * @param Author $author
@@ -35,7 +40,7 @@ class Article
     public function __clone()
     {
         if (preg_match('/(.*)Copy\s*(\d*)/is', $this->title, $match)) {
-            $this->title = $match[1] . 'Copy ' . ((int)$match[2] + 1);
+            $this->title = $match[1] . 'Copy ' . ((int) $match[2] + 1);
         } else {
             $this->title .= ' Copy';
         }

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\RomanToInteger;
-
 
 /**
  * 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
@@ -32,7 +32,6 @@ namespace Linnzh\Utils\Leetcode\RomanToInteger;
  */
 class Solution
 {
-
     private const RULE = [
         'I' => 1,
         'V' => 5,
@@ -50,8 +49,9 @@ class Solution
     ];
 
     /**
-     * @param String $s
-     * @return Integer
+     * @param string $s
+     *
+     * @return int
      */
     public function romanToInt(string $s): int
     {
@@ -60,12 +60,15 @@ class Solution
         $count = strlen($s);
         $result = 0;
         $i = 0;
-        while($i < $count) {
-            if (isset($arr[$i+1])) {
+
+        while ($i < $count) {
+            if (isset($arr[$i + 1])) {
                 $combine = $arr[$i] . $arr[$i + 1];
+
                 if (isset(self::RULE[$combine])) {
                     $split[] = $combine;
                     $i += 2;
+
                     continue;
                 }
             }
@@ -87,11 +90,13 @@ class Solution
 
         foreach ($arr as $key => $item) {
             $result += self::RULE[$item];
+
             if ($key === 0) {
                 continue;
             }
 
             $prev = $arr[$key - 1];
+
             if (self::RULE[$item] > self::RULE[$prev]) {
                 $result -= self::RULE[$prev] * 2;
             }

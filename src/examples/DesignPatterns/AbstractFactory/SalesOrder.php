@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\examples\DesignPatterns\AbstractFactory;
-
 
 class SalesOrder implements OrderInterface
 {
@@ -11,8 +11,7 @@ class SalesOrder implements OrderInterface
     public function __construct(
         protected array $details = [],
         protected array $products = []
-    )
-    {
+    ) {
         $this->createAt = new \DateTimeImmutable();
     }
 

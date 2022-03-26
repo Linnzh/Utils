@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Flyweight;
 
-
 class Material
 {
-    protected string $name, $description;
+    protected string $name;
+
+    protected string $description;
+
     protected MaterialCategoryFlyweight $category;
 
     public function __construct(string $name, string $description, MaterialCategoryFlyweight $category)
@@ -36,6 +39,7 @@ class Material
                 return false;
             }
         }
+
         return true;
     }
 }

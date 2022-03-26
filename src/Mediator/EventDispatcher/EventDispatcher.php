@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Mediator\EventDispatcher;
-
 
 /**
  * @Singleton
@@ -38,23 +38,8 @@ class EventDispatcher
         if (!self::$instance instanceof self) {
             self::$instance = new self();
         }
+
         return self::$instance;
-    }
-
-    private function initEventGroup(string &$event = '*'): void
-    {
-        if (!isset($this->observers[$event])) {
-            $this->observers[$event] = [];
-        }
-    }
-
-    private function getEventObservers(string $event = '*'): array
-    {
-        $this->initEventGroup($event);
-        $group = $this->observers[$event];
-        $all = $this->observers['*'];
-
-        return array_merge($group, $all);
     }
 
     public function attach(ObserverInterface $observer, string $event = '*'): void
@@ -76,9 +61,26 @@ class EventDispatcher
     public function trigger(string $event, object $emitter, $data = null): void
     {
         echo "事件分发器——正在广播事件：{$event}\n";
+
         foreach ($this->getEventObservers($event) as $observer) {
             $observer->update($event, $emitter, $data);
         }
         echo PHP_EOL;
+    }
+
+    private function initEventGroup(string &$event = '*'): void
+    {
+        if (!isset($this->observers[$event])) {
+            $this->observers[$event] = [];
+        }
+    }
+
+    private function getEventObservers(string $event = '*'): array
+    {
+        $this->initEventGroup($event);
+        $group = $this->observers[$event];
+        $all = $this->observers['*'];
+
+        return array_merge($group, $all);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Proxy;
-
 
 class CachingDownloader implements DownloaderInterface
 {
@@ -17,7 +17,7 @@ class CachingDownloader implements DownloaderInterface
 
     public function download(string $url): string
     {
-        if(!isset($this->cache[$url])) {
+        if (!isset($this->cache[$url])) {
             echo "缓存失效！正在重新下载……\n";
             $result = $this->downloader->download($url);
             $this->cache[$url] = $result;

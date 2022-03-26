@@ -1,28 +1,32 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\TemplateMethod;
-
-
-use Linnzh\Utils\Strategy\PaymentMethodInterface;
 
 abstract class Order
 {
     public int $id;
+
     public \DateTime $createAt;
+
     public int $type = 1;
+
     public array $products = [];
+
     public float $price = 0;
 
     public function __construct(array $attributes = [])
     {
         $this->id = getmyuid();
         $this->createAt = new \DateTime();
+
         foreach ($attributes as $key => $value) {
             if ($key === 'products') {
                 foreach ($value as $item) {
                     $this->addProduct(new Product($item));
                 }
+
                 continue;
             }
             $this->{$key} = $value;

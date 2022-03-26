@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Flyweight;
-
 
 class MaterialCategoryFlyweight
 {
     public string $supplier;
+
     public int $manufactureYear;
 
     public function __construct(string $supplier, int $manufactureYear)

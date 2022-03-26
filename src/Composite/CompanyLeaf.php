@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Composite;
 
-
 class CompanyLeaf extends AbstractCompany
 {
-
     private string $name;
 
     public function __construct(string $name)

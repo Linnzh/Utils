@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\TemplateMethod;
-
 
 class PickupOrder extends Order
 {

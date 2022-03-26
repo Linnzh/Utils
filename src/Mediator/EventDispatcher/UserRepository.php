@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Mediator\EventDispatcher;
-
 
 class UserRepository implements ObserverInterface
 {
     /**
-     * @var array List of application's users.
+     * @var array list of application's users
      */
     private array $users = [];
 
@@ -67,6 +67,7 @@ class UserRepository implements ObserverInterface
         echo "数据仓: 正在更新一个用户……\n";
 
         $id = $user->attributes['id'];
+
         if (!isset($this->users[$id])) {
             return null;
         }
@@ -86,6 +87,7 @@ class UserRepository implements ObserverInterface
         echo "数据仓: 正在删除一个用户……\n";
 
         $id = $user->attributes['id'];
+
         if (!isset($this->users[$id])) {
             return;
         }

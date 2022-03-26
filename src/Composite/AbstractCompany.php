@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Composite;
-
 
 abstract class AbstractCompany
 {
@@ -31,12 +31,10 @@ abstract class AbstractCompany
 
     public function add(AbstractCompany $component): void
     {
-
     }
 
     public function remove(AbstractCompany $component): void
     {
-
     }
 
     abstract public function execute(): string;

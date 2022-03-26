@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Facade;
-
 
 class User
 {
     private string $name;
+
     private string $email;
 
     public function __construct(?string $name, ?string $email)

@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\FactoryMethod\SocialNetwork;
-
 
 class FacebookConnector implements SocialNetworkConnector
 {
     private string $password;
+
     private string $login;
 
     public function __construct(string $login, string $password)

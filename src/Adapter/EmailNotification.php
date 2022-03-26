@@ -1,16 +1,16 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Adapter;
 
-
 class EmailNotification implements NotificationTarget
 {
-
     private string $email;
 
     /**
      * EmailNotification constructor.
+     *
      * @param string|null $email
      */
     public function __construct(?string $email)

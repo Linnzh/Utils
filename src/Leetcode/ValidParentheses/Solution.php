@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\ValidParentheses;
-
 
 /**
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
@@ -18,7 +18,6 @@ namespace Linnzh\Utils\Leetcode\ValidParentheses;
  */
 class Solution
 {
-
     public const PARENTHESES = [
         ')' => '(',
         ']' => '[',
@@ -26,12 +25,14 @@ class Solution
     ];
 
     /**
-     * @param String $s
-     * @return Boolean
+     * @param string $s
+     *
+     * @return bool
      */
     public function isValid(string $s): bool
     {
         $count = strlen($s);
+
         if ($count % 2 === 1) {
             return false;
         }
@@ -50,6 +51,7 @@ class Solution
                 $stack[] = $item;
             }
         }
+
         return count($stack) === 0;
     }
 }

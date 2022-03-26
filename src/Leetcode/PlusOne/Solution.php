@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\PlusOne;
-
 
 /**
  * 给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
@@ -20,8 +20,9 @@ namespace Linnzh\Utils\Leetcode\PlusOne;
 class Solution
 {
     /**
-     * @param Integer[] $digits
-     * @return Integer[]
+     * @param int[] $digits
+     *
+     * @return int[]
      */
     public function plusOne(array $digits): array
     {
@@ -31,6 +32,7 @@ class Solution
         while ($i >= 0) {
             $digits[$i]++;
             $digits[$i] %= 10;
+
             if ($digits[$i] !== 0) {
                 return $digits;
             }
@@ -46,12 +48,13 @@ class Solution
 
     /**
      * @notice 略复杂的计算逻辑
-     * @param Integer[] $digits
-     * @return Integer[]
+     *
+     * @param int[] $digits
+     *
+     * @return int[]
      */
     public function plusOne2(array $digits): array
     {
-
         $count = count($digits);
         $i = $count - 1;
 
@@ -62,6 +65,7 @@ class Solution
             $addSingle = $isAddOne ? $current - 10 : $current;
 
             $digits[$i] = $addSingle;
+
             if (!$isAddOne) {
                 break;
             }
@@ -77,14 +81,16 @@ class Solution
 
     /**
      * @error 数字精度问题
-     * @param Integer[] $digits
-     * @return Integer[]
+     *
+     * @param int[] $digits
+     *
+     * @return int[]
      */
     public function plusOneSimple(array $digits): array
     {
-        $digit = (int)implode('', $digits);
+        $digit = (int) implode('', $digits);
         $digit = number_format($digit, 0, '', '');
-        $result = number_format((int)$digit + 1, 0, '', '');
+        $result = number_format((int) $digit + 1, 0, '', '');
 
         return str_split($result);
     }

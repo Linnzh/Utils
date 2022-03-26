@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Decorator;
-
 
 class QQNotifierDecorator extends AbstractNotifierDecorator
 {
@@ -17,4 +17,3 @@ class QQNotifierDecorator extends AbstractNotifierDecorator
         echo $message . ' 发送了一条QQ通知' . PHP_EOL;
     }
 }
-

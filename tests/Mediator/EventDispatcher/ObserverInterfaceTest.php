@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Mediator\EventDispatcher;
 
 use Linnzh\Utils\Mediator\EventDispatcher\EventDispatcher;
 use Linnzh\Utils\Mediator\EventDispatcher\Logger;
-use Linnzh\Utils\Mediator\EventDispatcher\ObserverInterface;
 use Linnzh\Utils\Mediator\EventDispatcher\OnBoardingNotification;
 use Linnzh\Utils\Mediator\EventDispatcher\UserRepository;
 use PHPUnit\Framework\TestCase;

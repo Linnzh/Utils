@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Test\Algorithm;
-
 
 use Linnzh\Utils\Algorithm\SimpleSorting;
 use PHPUnit\Framework\TestCase;
@@ -19,10 +19,13 @@ class SimpleSortingTest extends TestCase
         $result = SimpleSorting::selectionSort($data);
         $this->assertIsArray($result);
         sort($data);
-        $this->assertEquals($data, $result,
-            "初始值：" . json_encode($initValue, JSON_UNESCAPED_UNICODE) .
-            "\n预期结果：" . json_encode($data, JSON_UNESCAPED_UNICODE)
-            . "\n实际结果：" . json_encode($result, JSON_UNESCAPED_UNICODE));
+        $this->assertEquals(
+            $data,
+            $result,
+            '初始值：' . json_encode($initValue, JSON_UNESCAPED_UNICODE)
+            . "\n预期结果：" . json_encode($data, JSON_UNESCAPED_UNICODE)
+            . "\n实际结果：" . json_encode($result, JSON_UNESCAPED_UNICODE)
+        );
     }
 
     public function testInsertionSort(): void
@@ -35,9 +38,12 @@ class SimpleSortingTest extends TestCase
         $result = SimpleSorting::insertionSort($data);
         $this->assertIsArray($result);
         sort($data);
-        $this->assertEquals($data, $result,
-            "初始值：" . json_encode($initValue, JSON_UNESCAPED_UNICODE) .
-            "\n预期结果：" . json_encode($data, JSON_UNESCAPED_UNICODE)
-            . "\n实际结果：" . json_encode($result, JSON_UNESCAPED_UNICODE));
+        $this->assertEquals(
+            $data,
+            $result,
+            '初始值：' . json_encode($initValue, JSON_UNESCAPED_UNICODE)
+            . "\n预期结果：" . json_encode($data, JSON_UNESCAPED_UNICODE)
+            . "\n实际结果：" . json_encode($result, JSON_UNESCAPED_UNICODE)
+        );
     }
 }

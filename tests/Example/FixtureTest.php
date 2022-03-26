@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Test\Example;
-
 
 use PHPUnit\Framework\TestCase;
 
@@ -22,13 +22,7 @@ class FixtureTest extends TestCase
      *
      * 需要反复强调的是：在测试之间共享基境会降低测试的价值。潜在的设计问题是对象之间并非松散耦合。
      */
-
     protected $stack;
-
-    protected function setUp(): void
-    {
-        $this->stack = [];
-    }
 
     public function testEmpty(): void
     {
@@ -47,5 +41,10 @@ class FixtureTest extends TestCase
         $this->stack[] = 'foo';
         $this->assertEquals('foo', array_pop($this->stack));
         $this->assertEmpty($this->stack);
+    }
+
+    protected function setUp(): void
+    {
+        $this->stack = [];
     }
 }

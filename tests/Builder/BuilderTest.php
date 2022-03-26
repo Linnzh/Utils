@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Builder;
 
-use Linnzh\Utils\Builder\Builder;
 use Linnzh\Utils\Builder\CarBuilder;
 use Linnzh\Utils\Builder\Director;
 use Linnzh\Utils\Builder\ManualBuilder;

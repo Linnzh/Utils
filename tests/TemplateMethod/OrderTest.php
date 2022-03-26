@@ -1,11 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\TemplateMethod;
 
-use Linnzh\Utils\TemplateMethod\Order;
 use Linnzh\Utils\TemplateMethod\OrderFactory;
 use Linnzh\Utils\TemplateMethod\PickupOrder;
-use Linnzh\Utils\TemplateMethod\RegularOrder;
 use PHPUnit\Framework\TestCase;
 
 class OrderTest extends TestCase
@@ -31,6 +31,7 @@ class OrderTest extends TestCase
         ];
 
         $pickUp = false;
+
         foreach ($data['products'] as $product) {
             if (isset($product['pickup_quantity']) && $product['pickup_quantity'] > 0) {
                 $pickUp = true;

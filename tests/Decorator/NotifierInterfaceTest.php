@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Decorator;
 
-use Linnzh\Utils\Decorator\NotifierInterface;
 use Linnzh\Utils\Decorator\QQNotifierDecorator;
 use Linnzh\Utils\Decorator\SmsNotifierDecorator;
 use Linnzh\Utils\Decorator\WechatNotifierDecorator;

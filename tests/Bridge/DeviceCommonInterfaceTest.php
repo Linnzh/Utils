@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Bridge;
 
 use Linnzh\Utils\Bridge\AdvancedRemoteController;
 use Linnzh\Utils\Bridge\BasicRemoteController;
-use Linnzh\Utils\Bridge\DeviceCommonInterface;
 use Linnzh\Utils\Bridge\Radio;
 use Linnzh\Utils\Bridge\TV;
 use PHPUnit\Framework\TestCase;

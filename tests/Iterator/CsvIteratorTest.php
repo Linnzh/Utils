@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Iterator;
 
 use Linnzh\Utils\Iterator\CsvIterator;

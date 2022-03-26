@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\ChainOfResponsibility;
 
-use Linnzh\Utils\ChainOfResponsibility\Middleware;
 use Linnzh\Utils\ChainOfResponsibility\RoleCheckMiddleware;
 use Linnzh\Utils\ChainOfResponsibility\Server;
 use Linnzh\Utils\ChainOfResponsibility\ThrottlingMiddleware;

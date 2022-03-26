@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\FactoryMethod\AbstractFactory;
 
 use Linnzh\Utils\FactoryMethod\AbstractFactory\Application;
-use Linnzh\Utils\FactoryMethod\AbstractFactory\GUIFactory;
 use Linnzh\Utils\FactoryMethod\AbstractFactory\WebFactory;
 use Linnzh\Utils\FactoryMethod\AbstractFactory\WindowsFactory;
 use PHPUnit\Framework\TestCase;

@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Observer;
 
 use Linnzh\Utils\Observer\Account;
-use Linnzh\Utils\Observer\Observable;
 use Linnzh\Utils\Observer\SmsSender;
 use PHPUnit\Framework\TestCase;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Algorithm;
 
 use Linnzh\Utils\Algorithm\SimpleSearch;
@@ -12,8 +14,8 @@ class SimpleSearchTest extends TestCase
         $data = range(12, 40);
 
         $count = 0;
-        while ($count < 7) {
 
+        while ($count < 7) {
             $expected = random_int(0, count($data) - 1);
             $target = $data[$expected];
             $result = SimpleSearch::binarySearch($data, $target);
@@ -35,8 +37,8 @@ class SimpleSearchTest extends TestCase
 //        $this->assertEquals($expected, $result);
 
         $count = 0;
-        while($count < 7) {
 
+        while ($count < 7) {
             $expected = random_int(0, count($data) - 1);
             $target = $data[$expected];
             $result = SimpleSearch::recursiveBinarySearch($data, $target, 0, count($data) - 1);

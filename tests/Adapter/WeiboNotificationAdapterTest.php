@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Adapter;
 
 use Linnzh\Utils\Adapter\EmailNotification;

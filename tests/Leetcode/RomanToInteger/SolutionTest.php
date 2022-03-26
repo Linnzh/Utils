@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\RomanToInteger;
 
 use Linnzh\Utils\Leetcode\RomanToInteger\Solution;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
 {
-
     public function testRomanToInt(): void
     {
         $this->assertEquals(3, (new Solution())->romanToInt('III'));

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\TwoSum;
 
 use Linnzh\Utils\Leetcode\TwoSum\Solution;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
 {
-
     public function testTwoSum(): void
     {
         $nums = [3, 2, 4];

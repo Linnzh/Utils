@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Algorithm;
 
 use Linnzh\Utils\Algorithm\ListNode;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class ListNodeTest extends TestCase
 {
-
     public function testIterateTraverse(): void
     {
         $node1 = new ListNode(1);

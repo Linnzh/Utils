@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Prototype;
 
 use Linnzh\Utils\Prototype\Article;
@@ -12,12 +14,12 @@ class ArticleTest extends TestCase
     {
         $author = new Author('Linn');
         $article = new Article('文章标题', "内容：{$author->getName()} 发表了她的第一篇文章~", $author);
-        $article->addComment("恭喜");
-        $article->addComment("恭喜+1");
+        $article->addComment('恭喜');
+        $article->addComment('恭喜+1');
         echo $article . "\n";
 
         $copyArticle = clone $article;
-        $copyArticle->addComment("又有产出啦");
+        $copyArticle->addComment('又有产出啦');
         echo $copyArticle . "\n";
 
         $copyArticle = clone $copyArticle;

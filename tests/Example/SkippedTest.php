@@ -1,20 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Test\Example;
-
 
 use PHPUnit\Framework\TestCase;
 
 class SkippedTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        if(!extension_loaded('pdo_mysql')) {
-            $this->markTestSkipped('PDO 扩展尚未开启，此测试将被跳过，该测试被标记为 S');
-        }
-    }
-
     public function testConnection(): void
     {
         $this->assertTrue(true);
@@ -29,5 +22,12 @@ class SkippedTest extends TestCase
     public function testPhpVersion(): void
     {
         $this->assertTrue(true);
+    }
+
+    protected function setUp(): void
+    {
+        if (!extension_loaded('pdo_mysql')) {
+            $this->markTestSkipped('PDO 扩展尚未开启，此测试将被跳过，该测试被标记为 S');
+        }
     }
 }

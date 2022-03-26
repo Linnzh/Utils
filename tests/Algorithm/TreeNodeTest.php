@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Algorithm;
 
 use Linnzh\Utils\Algorithm\TreeNode;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class TreeNodeTest extends TestCase
 {
-
     public function testTraverse(): void
     {
         $node1 = new TreeNode(1);

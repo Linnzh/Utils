@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Mediator;
 
-use Linnzh\Utils\Mediator\CameraManager;
 use Linnzh\Utils\Mediator\DeviceMediator;
-use Linnzh\Utils\Mediator\SpeakerManager;
 use PHPUnit\Framework\TestCase;
 
 class DeviceMediatorTest extends TestCase

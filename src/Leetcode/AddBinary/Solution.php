@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\AddBinary;
-
 
 /**
  * 给你两个二进制字符串，返回它们的和（用二进制表示）。
@@ -25,9 +25,10 @@ namespace Linnzh\Utils\Leetcode\AddBinary;
 class Solution
 {
     /**
-     * @param String $a
-     * @param String $b
-     * @return String
+     * @param string $a
+     * @param string $b
+     *
+     * @return string
      */
     public function addBinary(string $a, string $b): string
     {
@@ -62,7 +63,7 @@ class Solution
                 }
             }
         }
-        
+
         return strrev($result);
     }
 }

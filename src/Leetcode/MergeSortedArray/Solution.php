@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\MergeSortedArray;
-
 
 /**
  * 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
@@ -20,10 +20,11 @@ class Solution
     /**
      * @TODO 如果不使用内置 sort() 函数，则需要使用**双指针**
      *
-     * @param Integer[] $nums1
-     * @param Integer $m
-     * @param Integer[] $nums2
-     * @param Integer $n
+     * @param int[] $nums1
+     * @param int   $m
+     * @param int[] $nums2
+     * @param int   $n
+     *
      * @return void
      */
     public function merge(array &$nums1, int $m, array $nums2, int $n): void

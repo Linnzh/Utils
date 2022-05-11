@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\MajorityElement;
 
 use Linnzh\Utils\Leetcode\MajorityElement\Solution;

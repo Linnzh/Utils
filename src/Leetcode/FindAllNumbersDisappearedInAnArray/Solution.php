@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\FindAllNumbersDisappearedInAnArray;
-
 
 /**
  * 找到所有数组中消失的数字
@@ -37,8 +37,10 @@ class Solution
      * 对 nums 进行遍历，如果 generator 的元素不存在于 nums，则进行记录
      * - 这里使用数组的索引来快速查找
      * - 如果使用 in_array() 方法，则会导致运行时间过长
-     * @param Integer[] $nums
-     * @return Integer[]
+     *
+     * @param int[] $nums
+     *
+     * @return int[]
      */
     public function findDisappearedNumbers(array $nums): array
     {
@@ -47,8 +49,9 @@ class Solution
 
         $generator = static::generator($count);
         $nums = array_combine($nums, $nums);
+
         foreach ($generator as $i) {
-            if(!isset($nums[$i])) {
+            if (!isset($nums[$i])) {
                 $result[] = $i;
             }
         }

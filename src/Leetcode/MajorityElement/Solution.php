@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Leetcode\MajorityElement;
 
 /**
@@ -28,24 +30,28 @@ namespace Linnzh\Utils\Leetcode\MajorityElement;
 class Solution
 {
     /**
-     * @param Integer[] $nums
-     * @return Integer
+     * @param int[] $nums
+     *
+     * @return int
      */
     public function majorityElement(array $nums): int
     {
-        $count = (int)ceil(count($nums) / 2);
+        $count = (int) ceil(count($nums) / 2);
         $generator = static::getGenerator($nums);
         $result = [];
+
         foreach ($generator as $key => $item) {
             if (isset($result[$key])) {
                 $result[$key]++;
             } else {
                 $result[$key] = 1;
             }
+
             if ($result[$key] >= $count) {
                 return $key;
             }
         }
+
         return -1;
     }
 

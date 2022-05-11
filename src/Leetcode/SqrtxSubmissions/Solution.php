@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\SqrtxSubmissions;
-
 
 /**
  * 给你一个非负整数 x ，计算并返回 x 的 算术平方根 。
@@ -18,8 +18,9 @@ namespace Linnzh\Utils\Leetcode\SqrtxSubmissions;
 class Solution
 {
     /**
-     * @param Integer $x
-     * @return Integer
+     * @param int $x
+     *
+     * @return int
      */
     public function mySqrt(int $x): int
     {
@@ -31,13 +32,16 @@ class Solution
         }
         $x0 = $x;
         $offset = 10 ** -7;
-        while(true) {
+
+        while (true) {
             $xi = 0.5 * ($x0 + $x / $x0);
-            if(abs($x0 - $xi) < $offset) {
+
+            if (abs($x0 - $xi) < $offset) {
                 break;
             }
             $x0 = $xi;
         }
-        return (int)$x0;
+
+        return (int) $x0;
     }
 }

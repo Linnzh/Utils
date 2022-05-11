@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\SearchInsertPosition;
 
 use Linnzh\Utils\Leetcode\SearchInsertPosition\Solution;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
 {
-
     public function testSearchInsert(): void
     {
         $this->assertEquals(0, (new Solution())->searchInsert([1, 2, 3], -1));

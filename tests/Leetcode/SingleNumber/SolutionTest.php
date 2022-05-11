@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\SingleNumber;
 
 use Linnzh\Utils\Leetcode\SingleNumber\Solution;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
 {
-
     public function testSingleNumber(): void
     {
         $this->assertEquals(1, (new Solution())->singleNumber([2, 2, 1]));

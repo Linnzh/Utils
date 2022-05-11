@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\LengthOfLastWord;
-
 
 /**
  * 给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
@@ -16,17 +16,20 @@ namespace Linnzh\Utils\Leetcode\LengthOfLastWord;
 class Solution
 {
     /**
-     * @param String $s
-     * @return Integer
+     * @param string $s
+     *
+     * @return int
      */
     public function lengthOfLastWord(string $s): int
     {
         $s = trim($s);
         $lastIndex = strlen($s) - 1;
         $spaceIndex = strrpos($s, ' ');
+
         if ($spaceIndex === false) {
             $spaceIndex = -1;
         }
+
         return $lastIndex - $spaceIndex;
     }
 }

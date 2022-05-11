@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\SingleNumber;
-
 
 /**
  * 只出现一次的数字
@@ -30,13 +30,15 @@ namespace Linnzh\Utils\Leetcode\SingleNumber;
 class Solution
 {
     /**
-     * @param Integer[] $nums
+     * @param int[] $nums
+     *
      * @return int|null
      */
     public function singleNumber(array $nums): ?int
     {
         $generator = static::getGenerator($nums);
         $result = [];
+
         foreach ($generator as $item) {
             if (!isset($result[$item])) {
                 $result[$item] = 0;

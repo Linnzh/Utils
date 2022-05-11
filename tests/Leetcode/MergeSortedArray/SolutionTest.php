@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\MergeSortedArray;
 
 use Linnzh\Utils\Leetcode\MergeSortedArray\Solution;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
 {
-
     public function testMerge(): void
     {
         $nums1 = [1, 2, 3, 0, 0, 0];

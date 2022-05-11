@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\MaximumSubarray;
-
 
 /**
  * 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
@@ -28,12 +28,14 @@ class Solution
     /**
      * 暴力破解
      *
-     * @param Integer[] $nums
+     * @param int[] $nums
+     *
      * @return int
      */
     public function maxSubArray(array $nums): int
     {
         $count = count($nums);
+
         if ($count === 1) {
             return $nums[0];
         }

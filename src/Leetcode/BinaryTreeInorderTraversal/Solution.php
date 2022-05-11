@@ -1,11 +1,10 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\BinaryTreeInorderTraversal;
 
-
 use Linnzh\Utils\Algorithm\TreeNode;
-
 
 /**
  * 给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
@@ -33,11 +32,13 @@ class Solution
 {
     /**
      * 递归算法
+     *
      * @TODO 迭代算法
      *
      * @param TreeNode $root
-     * @param array $result
-     * @return Integer[]
+     * @param array    $result
+     *
+     * @return int[]
      */
     public function inorderTraversal(TreeNode $root, array &$result = []): array
     {

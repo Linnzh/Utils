@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\ImplementStrStr;
-
 
 /**
  * 实现 strStr() 函数。
@@ -22,9 +22,10 @@ namespace Linnzh\Utils\Leetcode\ImplementStrStr;
 class Solution
 {
     /**
-     * @param String $haystack
-     * @param String $needle
-     * @return Integer
+     * @param string $haystack
+     * @param string $needle
+     *
+     * @return int
      */
     public function strStr(string $haystack, string $needle): int
     {

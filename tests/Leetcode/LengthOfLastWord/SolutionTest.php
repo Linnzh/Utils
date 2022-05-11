@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\LengthOfLastWord;
 
 use Linnzh\Utils\Leetcode\LengthOfLastWord\Solution;
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
 {
-
     public function testLengthOfLastWord(): void
     {
         $this->assertEquals(1, (new Solution())->lengthOfLastWord('a'));

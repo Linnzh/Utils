@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\RemoveElement;
-
 
 /**
  * 给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
@@ -18,9 +18,10 @@ namespace Linnzh\Utils\Leetcode\RemoveElement;
 class Solution
 {
     /**
-     * @param Integer[] $nums
-     * @param Integer $val
-     * @return Integer
+     * @param int[] $nums
+     * @param int   $val
+     *
+     * @return int
      */
     public function removeElement(array &$nums, int $val): int
     {
@@ -29,6 +30,7 @@ class Solution
                 unset($nums[$key]);
             }
         }
+
         return count($nums);
     }
 }

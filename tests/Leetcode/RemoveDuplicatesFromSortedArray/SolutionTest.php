@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linnzh\Utils\Test\Leetcode\RemoveDuplicatesFromSortedArray;
 
 use Linnzh\Utils\Leetcode\RemoveDuplicatesFromSortedArray\Solution;

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\ClimbingStairs;
-
 
 /**
  * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
@@ -50,8 +50,9 @@ class Solution
      * 使用递归会造成重复计算，可能会导致超时
      * 这里只需要计算指定 n 的前两个元素之和
      *
-     * @param Integer $n
-     * @return Integer
+     * @param int $n
+     *
+     * @return int
      */
     public function climbStairs(int $n): int
     {
@@ -61,9 +62,11 @@ class Solution
         $dp = [];
         $dp[1] = 1;
         $dp[2] = 2;
+
         for ($i = 3; $i <= $n; $i++) {
-            $dp[$i] = $dp[$i-1] + $dp[$i-2];
+            $dp[$i] = $dp[$i - 1] + $dp[$i - 2];
         }
+
         return $dp[$n];
     }
 }

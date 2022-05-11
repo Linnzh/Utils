@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\SearchInsertPosition;
-
 
 /**
  * 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
@@ -16,9 +16,10 @@ namespace Linnzh\Utils\Leetcode\SearchInsertPosition;
 class Solution
 {
     /**
-     * @param Integer[] $nums
-     * @param Integer $target
-     * @return Integer
+     * @param int[] $nums
+     * @param int   $target
+     *
+     * @return int
      */
     public function searchInsert(array $nums, int $target): int
     {
@@ -27,14 +28,17 @@ class Solution
         }
 
         $count = count($nums);
+
         if ($target === $nums[$count - 1]) {
             return $count - 1;
         }
+
         if ($target > $nums[$count - 1]) {
             return $count;
         }
 
         $maxIndex = 0;
+
         foreach ($nums as $key => $num) {
             if ($target === $num) {
                 return $key;
@@ -44,6 +48,7 @@ class Solution
                 $maxIndex = $key + 1;
             }
         }
+
         return $maxIndex;
     }
 }

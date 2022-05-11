@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Linnzh\Utils\Leetcode\RemoveDuplicatesFromSortedArray;
-
 
 /**
  * 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。
@@ -20,19 +20,23 @@ namespace Linnzh\Utils\Leetcode\RemoveDuplicatesFromSortedArray;
 class Solution
 {
     /**
-     * @param Integer[] $nums
-     * @return Integer
+     * @param int[] $nums
+     *
+     * @return int
      */
     public function removeDuplicates(array &$nums): int
     {
         $result = [];
+
         foreach ($nums as $key => $num) {
             if (isset($result[$num])) {
                 unset($nums[$key]);
+
                 continue;
             }
             $result[$num] = $num;
         }
+
         return count($result);
     }
 }

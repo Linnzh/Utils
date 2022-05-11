@@ -44,7 +44,11 @@ class Solution
     public function moveZeroes(array &$nums): void
     {
         $count = count($nums);
-        $nums = array_filter($nums);
+        foreach ($nums as $key => $num) {
+            if($num === 0) {
+                unset($nums[$key]);
+            }
+        }
         $nums = array_pad($nums, $count, 0);
     }
 }

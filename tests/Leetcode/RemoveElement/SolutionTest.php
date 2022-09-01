@@ -13,7 +13,7 @@ class SolutionTest extends TestCase
     {
         $nums = [3, 2, 2, 3];
         $count = (new Solution())->removeElement($nums, 3);
-        $this->assertEquals([2, 2], $nums);
+        $this->assertEquals([2, 2], array_values($nums));
         $this->assertEquals(2, $count);
     }
 }

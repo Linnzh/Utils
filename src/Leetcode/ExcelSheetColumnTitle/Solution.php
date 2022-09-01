@@ -48,7 +48,7 @@ namespace Linnzh\Utils\Leetcode\ExcelSheetColumnTitle;
 class Solution
 {
     /**
-     * 实际上为 10 进制转 26 进制问题
+     * 实际上为 26 进制转 10 进制问题（1，25）
      *
      * @param Integer $columnNumber
      *

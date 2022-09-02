@@ -19,10 +19,10 @@ class ListNode
      */
     public ?ListNode $next;
 
-    public function __construct(mixed $value)
+    public function __construct(mixed $value, ListNode $next = null)
     {
         $this->val = $value;
-        $this->next = null;
+        $this->next = $next;
     }
 
     /**

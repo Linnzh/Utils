@@ -12,7 +12,7 @@ class ListNode
     /**
      * @var mixed 节点存储值
      */
-    public mixed $value;
+    public mixed $val;
 
     /**
      * @var ListNode|null 指向下一节点的指针
@@ -21,7 +21,7 @@ class ListNode
 
     public function __construct(mixed $value)
     {
-        $this->value = $value;
+        $this->val = $value;
         $this->next = null;
     }
 
@@ -37,7 +37,7 @@ class ListNode
         $result = [];
 
         for ($p = $head; $p !== null; $p = $p->next) {
-            $result[] = $p->value;
+            $result[] = $p->val;
         }
 
         return $result;
@@ -53,7 +53,7 @@ class ListNode
      */
     public function preorderTraverse(ListNode $head, array &$result = []): array
     {
-        $result[] = $head->value;
+        $result[] = $head->val;
         $head->next && $this->preorderTraverse($head->next, $result);
 
         return $result;
@@ -70,7 +70,7 @@ class ListNode
     public function postorderTraverse(ListNode $head, array &$result = []): array
     {
         $head->next && $this->postorderTraverse($head->next, $result);
-        $result[] = $head->value;
+        $result[] = $head->val;
 
         return $result;
     }

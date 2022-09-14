@@ -3,5 +3,6 @@ vendor
 *.cache
 .idea
 .vscode
+.DS_Store
 employees_db-full-1.0.6.tar.bz2
 employees_db

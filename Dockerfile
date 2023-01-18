@@ -9,7 +9,8 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
     APP_ENV=prod \
     SCAN_CACHEABLE=(true)
 
-ENV PHPEXT_DEPS="php-imagick php-intl"
+# ffmpeg 依赖 yasm
+ENV PHPEXT_DEPS="php-imagick php-intl yasm ffmpeg"
 
 # update
 RUN set -ex \

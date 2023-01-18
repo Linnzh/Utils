@@ -13,7 +13,8 @@
         "php": ">=8.0",
 	    "ext-intl": "*",
         "psr/http-message": "1.0.x-dev",
-        "psr/http-server-handler": "1.0.x-dev"
+        "psr/http-server-handler": "1.0.x-dev",
+        "php-ffmpeg/php-ffmpeg": "1.0.0"
     },
     "autoload": {
         "files": [

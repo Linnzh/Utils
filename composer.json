@@ -30,9 +30,9 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "9.5.x-dev",
         "ext-json": "*",
-        "friendsofphp/php-cs-fixer": "dev-master"
+        "friendsofphp/php-cs-fixer": "dev-master",
+        "phpunit/phpunit": "9.6.x-dev"
     },
     "scripts": {
         "cs-fix": "php-cs-fixer fix $1",

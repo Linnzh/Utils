@@ -1,26 +1,41 @@
 ARG PHP_VERSION=8.0
+ARG ALPINE_VERSION=3.12
 
-FROM hyperf/hyperf:${PHP_VERSION}-alpine-v3.12-swoole
+FROM hyperf/hyperf:${PHP_VERSION}-alpine-v${ALPINE_VERSION}-swoole
 
-# 要想在 FROM 之后使用 ARG 构建参数，必须再次指定
-ARG PHP_VERSION=8.0
+ARG timezonee=Asia/Shanghai
 
-# 工作目录/当前目录
-WORKDIR /data/www
+WORKDIR /opt/www
+
+ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
+    APP_ENV=prod \
+    SCAN_CACHEABLE=(true)
+
+ENV PHPEXT_DEPS="php-imagick php-intl"
 
 # update
 RUN set -ex \
     && apk update \
-    # for swoole extension libaio linux-headers
-    && apk add --no-cache php80-mongodb \
-    && apk del --purge *-dev \
-    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /usr/share/php8 \
-    # php info
+    && apk add --no-cache $PHPEXT_DEPS \
+    # show php version and extensions
     && php -v \
     && php -m \
     && php --ri swoole \
-    && php --ri Zend\ OPcache \
-    && composer \
+    #  ---------- some config ----------
+    && cd /etc/php8 \
+    #  ---------- config PHP -----------
+    && { \
+        echo "upload_max_filesize=128M"; \
+        echo "post_max_size=128M"; \
+        echo "memory_limit=1G"; \
+        echo "date.timezone=${TIMEZONE}"; \
+    } | tee conf.d/99_overrides.ini \
+    # -------- config timezone ---------
+    && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+    && echo "${TIMEZONE}" > /etc/timezone \
     # ---------- clear works ----------
-    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /usr/local/bin/php* \
+    && apk del --purge *-dev \
+    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

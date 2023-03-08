@@ -56,3 +56,34 @@ function longestCommonPrefix(array $strArr): string {
 
     return $strArr[0];
 }
+
+/**
+ * 罗马数字转整数
+ *
+ * @param string $s
+ *
+ * @return float|int
+ */
+function romanToInt(string $s): float|int
+{
+    define("RULE", ['I' => 1, 'V' => 5, 'X' => 10, 'L' => 50,
+                    'C' => 100, 'D' => 500, 'M' => 1000, 'IV' => 4,
+                    'IX' => 9, 'XL' => 40, 'XC' => 90, 'CD' => 400,
+                    'CM' => 900]);
+    $arr = str_split($s);
+    $result = 0;
+
+    foreach ($arr as $key => $item) {
+        $result += RULE[$item];
+        if ($key === 0) {
+            continue;
+        }
+
+        $prev = $arr[$key - 1];
+        if (RULE[$item] > RULE[$prev]) {
+            $result -= RULE[$prev] * 2;
+        }
+    }
+
+    return $result;
+}

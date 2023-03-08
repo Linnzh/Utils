@@ -3,13 +3,34 @@
 declare(strict_types=1);
 
 /**
+ * 两数之和
+ *
+ * @param array $nums
+ * @param int   $target
+ *
+ * @return array
+ */
+function twoSum(array $nums, int $target): array
+{
+    $hash = array_combine($nums, array_keys($nums));
+    foreach ($nums as $k1 => $left) {
+        $k2 = $target - $left;
+        if (isset($hash[$k2]) && $k1 != $hash[$k2]) {
+            return [$k1, $hash[$k2]];
+        }
+    }
+    return [];
+}
+
+/**
  * 判断是否为回文数
  *
  * @param int $x
  *
  * @return bool
  */
-function isPalindrome(int $x): bool {
+function isPalindrome(int $x): bool
+{
     if ($x < 0) {
         return false;
     }

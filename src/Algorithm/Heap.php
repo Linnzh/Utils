@@ -82,7 +82,7 @@ class Heap
      */
     public function peek()
     {
-        return $this->data[0];
+        return $this->size == 0 ? null : $this->data[0];
     }
 
     /**
@@ -172,7 +172,7 @@ class Heap
         }
     }
 
-    private function swap(int $index1, int $index2)
+    public function swap(int $index1, int $index2)
     {
         $temp = $this->data[$index1];
         $this->data[$index1] = $this->data[$index2];

@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Linnzh\Utils\Algorithm;
 
 /**
- * 单链表节点
+ * 链表 - LinkedList
+ *
+ * 链表是一种动态数据结构，它由一系列节点组成，每个节点包含数据和指向下一个节点的指针。
+ * 链表可以用于动态地添加或删除元素，但访问元素的速度较慢。
  */
 class ListNode
 {

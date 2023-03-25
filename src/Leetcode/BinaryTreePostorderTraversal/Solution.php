@@ -43,7 +43,7 @@ class Solution
 
         $root->left && $this->postorderTraversal($root->left, $result);
         $root->right && $this->postorderTraversal($root->right, $result);
-        $result[] = $root->value;
+        $result[] = $root->val;
 
         return $result;
     }

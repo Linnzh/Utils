@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace Linnzh\Utils\Algorithm;
 
 /**
- * 二叉树节点
+ * 二叉树 - TreeNode
+ *
+ * 二叉树是一种树形数据结构，每个节点最多有两个子节点。
+ * 二叉树常用于搜索、排序、哈希等场景。
  */
 class TreeNode
 {
     /**
      * @var mixed 节点存储值
      */
-    public mixed $value;
+    public mixed $val;
 
     /**
      * @var TreeNode|null 指向左侧子节点的指针
@@ -26,7 +29,7 @@ class TreeNode
 
     public function __construct(mixed $value)
     {
-        $this->value = $value;
+        $this->val = $value;
         $this->left = null;
         $this->right = null;
     }
@@ -34,7 +37,7 @@ class TreeNode
     public function traverse(TreeNode $root, array &$result = []): array
     {
         // 前序遍历
-        $result[] = $root->value;
+        $result[] = $root->val;
         $root->left && $this->traverse($root->left, $result);
 
         // 中序遍历
@@ -54,7 +57,7 @@ class TreeNode
      */
     public function preorderTraverse(TreeNode $root, array &$result = []): array
     {
-        $result[] = $root->value;
+        $result[] = $root->val;
         $root->left && $this->preorderTraverse($root->left, $result);
         $root->right && $this->preorderTraverse($root->right, $result);
 
@@ -73,7 +76,7 @@ class TreeNode
     {
         $root->left && $this->inorderTraverse($root->left, $result);
 
-        $result[] = $root->value;
+        $result[] = $root->val;
 
         $root->right && $this->inorderTraverse($root->right, $result);
 
@@ -92,7 +95,7 @@ class TreeNode
     {
         $root->left && $this->postorderTraverse($root->left, $result);
         $root->right && $this->postorderTraverse($root->right, $result);
-        $result[] = $root->value;
+        $result[] = $root->val;
 
         return $result;
     }
@@ -119,8 +122,8 @@ class TreeNode
         $right = max(0, $this->oneSideMax($root->right, $ans));
 
         // 后序遍历：决定是否加上父节点的值
-        $ans = max($ans, $left + $right + $root->value);
+        $ans = max($ans, $left + $right + $root->val);
 
-        return max($left, $right) + $root->value;
+        return max($left, $right) + $root->val;
     }
 }

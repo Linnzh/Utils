@@ -54,7 +54,7 @@ class Solution
      */
     public function preorderTraversal(TreeNode $root, array &$result = []): array
     {
-        $result[] = $root->value;
+        $result[] = $root->val;
 
         $root->left && $this->preorderTraversal($root->left, $result);
         $root->right && $this->preorderTraversal($root->right, $result);

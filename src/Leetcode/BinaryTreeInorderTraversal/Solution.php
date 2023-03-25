@@ -44,7 +44,7 @@ class Solution
     {
         $root->left && $this->inorderTraversal($root->left, $result);
 
-        $result[] = $root->value;
+        $result[] = $root->val;
 
         $root->right && $this->inorderTraversal($root->right, $result);
 

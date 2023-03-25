@@ -178,5 +178,10 @@ class Heap
         $this->data[$index1] = $this->data[$index2];
         $this->data[$index2] = $temp;
     }
+
+    public function size()
+    {
+        return $this->size;
+    }
 }
 

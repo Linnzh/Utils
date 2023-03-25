@@ -122,9 +122,7 @@ class Heap
         }
 
         $root = $this->data[0];
-        $this->data[0] = $this->data[$this->size - 1];
-        unset($this->data[$this->size - 1]);
-        sort($this->data);// fix: undefined array key
+        $this->data[0] = array_pop($this->data);
         $this->size--;
 
         $this->heapifyDown();

@@ -84,5 +84,61 @@ class Heap
     {
         return $this->data[0];
     }
+
+    /**
+     * 元素入堆
+     *
+     * @param mixed $item
+     */
+    public function push(mixed $item)
+    {
+        /**
+         * 添加至堆底
+         */
+        $this->data[] = $item;
+        $this->size++;
+
+        /**
+         * 由于 val 可能大于堆中其它元素，此时堆的成立条件可能已经被破坏，
+         * 因此需要修复从插入结点到根结点这条路径上的各个结点，该操作被称为「堆化 Heapify」
+         */
+        $this->heapifyUp($this->size - 1);
+    }
+
+    /**
+     * 堆化：修复从插入结点到根结点这条路径上的各个结点
+     *
+     * 将新插入的元素与其父节点进行比较并进行位置调整，使得堆仍保持大顶堆的性质
+     *
+     * @param int $index 新插入的元素的下标
+     */
+    protected function heapifyUp(int $index)
+    {
+        // 如果当前节点不是根节点，且当前节点比其父节点大，需要进行位置交换
+        while ($index > 0 && $this->data[$index] > $this->data[$this->parent($index)]) {
+            // 交换当前节点与父节点的值
+            $parentIndex = $this->swap($index);
+            // 更新当前节点的下标为其父节点的下标，继续进行比较
+            $index = $parentIndex;
+        }
+    }
+
+    /**
+     * 交换当前节点与父节点的值
+     *
+     * @param int $index
+     *
+     * @return int
+     */
+    protected function swap(int $index): int
+    {
+        $parentIndex = $this->parent($index);
+
+        $temp = $this->data[$index];
+        $this->data[$index] = $this->data[$parentIndex];
+        $this->data[$parentIndex] = $temp;
+
+        return $parentIndex;
+    }
 }
 

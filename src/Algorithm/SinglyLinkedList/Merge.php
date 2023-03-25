@@ -4,6 +4,7 @@
 namespace Linnzh\Utils\Algorithm\SinglyLinkedList;
 
 
+use Linnzh\Utils\Algorithm\Heap\MinHeap;
 use Linnzh\Utils\Algorithm\ListNode;
 
 class Merge
@@ -24,12 +25,12 @@ class Merge
      */
     public function mergeKSortedLists(array $listNodes)
     {
-        $minHeap = new \SplMinHeap();
+        $minHeap = new MinHeap();
 
         // 将每个链表的头结点加入小根堆
         foreach ($listNodes as $node) {
             if ($node) {
-                $minHeap->insert([$node->val, $node]);
+                $minHeap->push($node);
             }
         }
 
@@ -38,12 +39,12 @@ class Merge
 
         // 依次取出最小的结点，并将其后继加入小根堆
         while (!$minHeap->isEmpty()) {
-            $node = $minHeap->extract();
-            $curr->next = $node[1];
+            $node = $minHeap->pop();
+            $curr->next = $node;
             $curr = $curr->next;
 
-            if ($node[1]->next) {
-                $minHeap->insert([$node[1]->next->val, $node[1]->next]);
+            if ($node->next) {
+                $minHeap->push($node->next);
             }
         }
 

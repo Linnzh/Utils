@@ -86,7 +86,7 @@ class Heap
     }
 
     /**
-     * 元素入堆
+     * 元素入堆——堆底
      *
      * @param mixed $item
      */
@@ -106,7 +106,55 @@ class Heap
     }
 
     /**
-     * 堆化：修复从插入结点到根结点这条路径上的各个结点
+     * 堆顶元素——出堆
+     *
+     * 步骤：
+     * 1. 弹出堆顶元素（即最大值）
+     * 2. 将堆底元素赋值到堆顶
+     * 3. 执行 heapifyDown 操作，将新的堆顶元素进行下沉操作
+     *
+     * @return mixed
+     */
+    public function pop()
+    {
+        if ($this->size == 0)
+            return null;
+
+        $root = $this->data[0];
+        $this->data[0] = $this->data[$this->size - 1];
+        unset($this->data[$this->size - 1]);
+        $this->size--;
+
+        $this->heapifyDown(0);
+
+        return $root;
+    }
+
+    /**
+     * 从顶至底堆化：修复从根结点到弹出结点这条路径上的各个结点，从堆顶开始进行向下调整
+     *
+     * @param int $index
+     */
+    protected function heapifyDown(int $index = 0)
+    {
+        while ($this->left($index) < $this->size) {
+            // 找到左右子节点中较大的那个节点
+            $largestIndex = $this->left($index);
+            if ($largestIndex + 1 < $this->size && $this->data[$largestIndex + 1] > $this->data[$largestIndex]) {
+                $largestIndex = $this->right($index);
+            }
+            // 如果该节点比子节点中较大的节点还大，说明该元素已经到达了合适的位置，退出循环
+            if ($this->data[$index] >= $this->data[$largestIndex]) {
+                break;
+            }
+            // 否则，将该节点与子节点中较大的那个节点进行交换，并继续向下调整位置
+            $this->swap($index, $largestIndex);
+            $index = $largestIndex;
+        }
+    }
+
+    /**
+     * 从底至顶执行堆化：修复从插入结点到根结点这条路径上的各个结点，从入堆结点开始
      *
      * 将新插入的元素与其父节点进行比较并进行位置调整，使得堆仍保持大顶堆的性质
      *
@@ -117,28 +165,18 @@ class Heap
         // 如果当前节点不是根节点，且当前节点比其父节点大，需要进行位置交换
         while ($index > 0 && $this->data[$index] > $this->data[$this->parent($index)]) {
             // 交换当前节点与父节点的值
-            $parentIndex = $this->swap($index);
+            $parentIndex = $this->parent($index);
+            $this->swap($index, $parentIndex);
             // 更新当前节点的下标为其父节点的下标，继续进行比较
             $index = $parentIndex;
         }
     }
 
-    /**
-     * 交换当前节点与父节点的值
-     *
-     * @param int $index
-     *
-     * @return int
-     */
-    protected function swap(int $index): int
+    private function swap(int $index1, int $index2)
     {
-        $parentIndex = $this->parent($index);
-
-        $temp = $this->data[$index];
-        $this->data[$index] = $this->data[$parentIndex];
-        $this->data[$parentIndex] = $temp;
-
-        return $parentIndex;
+        $temp = $this->data[$index1];
+        $this->data[$index1] = $this->data[$index2];
+        $this->data[$index2] = $temp;
     }
 }
 

@@ -109,7 +109,7 @@ class Heap
      * 堆顶元素——出堆
      *
      * 步骤：
-     * 1. 弹出堆顶元素（即最大值）
+     * 1. 弹出堆顶元素（在 MaxHeap 中为最大值，MinHeap 中为最小值）
      * 2. 将堆底元素赋值到堆顶
      * 3. 执行 heapifyDown 操作，将新的堆顶元素进行下沉操作
      *
@@ -125,13 +125,13 @@ class Heap
         unset($this->data[$this->size - 1]);
         $this->size--;
 
-        $this->heapifyDown(0);
+        $this->heapifyDown();
 
         return $root;
     }
 
     /**
-     * 从顶至底堆化：修复从根结点到弹出结点这条路径上的各个结点，从堆顶开始进行向下调整
+     * 下沉/从顶至底堆化：修复从根结点到弹出结点这条路径上的各个结点，从堆顶开始进行向下调整
      *
      * @param int $index
      */
@@ -140,11 +140,11 @@ class Heap
         while ($this->left($index) < $this->size) {
             // 找到左右子节点中较大的那个节点
             $largestIndex = $this->left($index);
-            if ($largestIndex + 1 < $this->size && $this->data[$largestIndex + 1] > $this->data[$largestIndex]) {
+            if ($largestIndex + 1 < $this->size && $this->compare($largestIndex + 1, $largestIndex)) {
                 $largestIndex = $this->right($index);
             }
             // 如果该节点比子节点中较大的节点还大，说明该元素已经到达了合适的位置，退出循环
-            if ($this->data[$index] >= $this->data[$largestIndex]) {
+            if ($this->compare($index, $largestIndex)) {
                 break;
             }
             // 否则，将该节点与子节点中较大的那个节点进行交换，并继续向下调整位置
@@ -154,7 +154,7 @@ class Heap
     }
 
     /**
-     * 从底至顶执行堆化：修复从插入结点到根结点这条路径上的各个结点，从入堆结点开始
+     * 上浮/从底至顶执行堆化：修复从插入结点到根结点这条路径上的各个结点，从入堆结点开始
      *
      * 将新插入的元素与其父节点进行比较并进行位置调整，使得堆仍保持大顶堆的性质
      *
@@ -163,7 +163,7 @@ class Heap
     protected function heapifyUp(int $index)
     {
         // 如果当前节点不是根节点，且当前节点比其父节点大，需要进行位置交换
-        while ($index > 0 && $this->data[$index] > $this->data[$this->parent($index)]) {
+        while ($index > 0 && $this->compare($index, $this->parent($index))) {
             // 交换当前节点与父节点的值
             $parentIndex = $this->parent($index);
             $this->swap($index, $parentIndex);
@@ -182,6 +182,19 @@ class Heap
     public function size()
     {
         return $this->size;
+    }
+
+    /**
+     * 比较 left 是否大于 right（大顶堆）
+     *
+     * @param int $left
+     * @param int $right
+     *
+     * @return bool
+     */
+    protected function compare(int $left, int $right): bool
+    {
+        return $this->data[$left] > $this->data[$right];
     }
 }
 

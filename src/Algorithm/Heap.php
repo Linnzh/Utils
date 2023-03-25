@@ -117,8 +117,9 @@ class Heap
      */
     public function pop()
     {
-        if ($this->size == 0)
+        if ($this->size == 0) {
             return null;
+        }
 
         $root = $this->data[0];
         $this->data[0] = $this->data[$this->size - 1];
@@ -182,6 +183,11 @@ class Heap
     public function size()
     {
         return $this->size;
+    }
+
+    public function isEmpty()
+    {
+        return $this->size == 0;
     }
 
     /**

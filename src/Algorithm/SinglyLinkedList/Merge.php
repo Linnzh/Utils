@@ -9,6 +9,49 @@ use Linnzh\Utils\Algorithm\ListNode;
 class Merge
 {
     /**
+     * 难点：如何快速得到 k 个节点中的最小节点，接到结果链表上？
+     * 思路：
+     * 使用 优先级队列（二叉堆/最小堆） 这种数据结构，把链表节点放入一个最小堆，
+     * 就可以每次获得 k 个节点中的最小节点
+     *
+     * @link https://leetcode.cn/problems/merge-k-sorted-lists/
+     *       假设每个链表都已经按升序排列
+     *
+     * @link https://labuladong.github.io/algo/di-ling-zh-bfe1b/shuang-zhi-0f7cc/
+     * @link https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/er-cha-dui-1a386/
+     *
+     * @param ListNode[] $listNodes
+     */
+    public function mergeKSortedLists(array $listNodes)
+    {
+        $minHeap = new \SplMinHeap();
+
+        // 将每个链表的头结点加入小根堆
+        foreach ($listNodes as $node) {
+            if ($node) {
+                $minHeap->insert([$node->val, $node]);
+            }
+        }
+
+        $dummyHead = new ListNode(-1);
+        $curr = $dummyHead;
+
+        // 依次取出最小的结点，并将其后继加入小根堆
+        while (!$minHeap->isEmpty()) {
+            $node = $minHeap->extract();
+            $curr->next = $node[1];
+            $curr = $curr->next;
+
+            if ($node[1]->next) {
+                $minHeap->insert([$node[1]->next->val, $node[1]->next]);
+            }
+        }
+
+        return $dummyHead->next;
+    }
+
+
+    /**
      * Merge Two Sorted Lists
      *
      * 双指针技巧——拉拉链

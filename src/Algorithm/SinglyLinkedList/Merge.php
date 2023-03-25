@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Linnzh\Utils\Algorithm\LinkedList;
+namespace Linnzh\Utils\Algorithm\SinglyLinkedList;
 
 
 use Linnzh\Utils\Algorithm\ListNode;

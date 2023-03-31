@@ -36,6 +36,9 @@ class Find
      * 如果 fast 最终遇到空指针，说明链表中没有环；
      * 如果 fast 最终和 slow 相遇，那肯定是 fast 超过了 slow 一圈，说明链表中含有环。
      *
+     * @link https://leetcode.cn/problems/linked-list-cycle/
+     *       #141 环形链表
+     *
      * @param ListNode $head
      *
      * @return bool
@@ -60,6 +63,8 @@ class Find
      * 寻找链表的环起点
      *
      * @link https://labuladong.github.io/algo/di-ling-zh-bfe1b/shuang-zhi-0f7cc/
+     * @link https://leetcode.cn/problems/linked-list-cycle-ii/
+     *       #142 环形链表 II
      *
      * @param ListNode $head
      *

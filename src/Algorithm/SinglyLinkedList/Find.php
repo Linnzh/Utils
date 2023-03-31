@@ -55,4 +55,42 @@ class Find
         }
         return false;
     }
+
+    /**
+     * 寻找链表的环起点
+     *
+     * @link https://labuladong.github.io/algo/di-ling-zh-bfe1b/shuang-zhi-0f7cc/
+     *
+     * @param ListNode $head
+     *
+     * @return ListNode|null
+     */
+    public function detectCycle(ListNode $head)
+    {
+        $slow = $head;
+        $fast = $head;
+
+        while ($fast && $fast->next) {
+            $slow = $slow->next;
+            $fast = $fast->next->next;
+
+            if ($slow === $fast) {
+                break;
+            }
+        }
+
+        // fast 遇到空指针说明没有环
+        if ($fast == null || $fast->next == null) {
+            return null;
+        }
+
+        // 重新指向头结点
+        $slow = $head;
+        // 快慢指针同步前进，相交点就是环起点
+        while ($slow != $fast) {
+            $fast = $fast->next;
+            $slow = $slow->next;
+        }
+        return $slow;
+    }
 }

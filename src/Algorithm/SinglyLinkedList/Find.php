@@ -93,4 +93,43 @@ class Find
         }
         return $slow;
     }
+
+    /**
+     * 获取相交结点
+     *
+     * @link https://leetcode.cn/problems/intersection-of-two-linked-lists/
+     *       #160 相交链表
+     *
+     * @link https://labuladong.github.io/algo/di-ling-zh-bfe1b/shuang-zhi-0f7cc/
+     *
+     * 关键是，通过某些方式，让 p1 和 p2 能够同时到达相交节点 c1
+     * 可以让 p1 遍历完链表 A 之后开始遍历链表 B，让 p2 遍历完链表 B 之后开始遍历链表 A，
+     * 这样相当于「逻辑上」两条链表接在了一起
+     * 如果这样进行拼接，就可以让 p1 和 p2 同时进入公共部分，也就是同时到达相交节点 c1
+     *
+     * @param ListNode $head1
+     * @param ListNode $head2
+     *
+     * @return ListNode|null
+     */
+    public function getIntersectionNode(ListNode $head1, ListNode $head2)
+    {
+        $p1 = $head1;
+        $p2 = $head2;
+
+        while ($p1 !== $p2) {
+            if ($p1) {
+                $p1 = $p1->next;
+            } else {
+                $p1 = $head2;
+            }
+            if ($p2) {
+                $p2 = $p2->next;
+            } else {
+                $p2 = $head1;
+            }
+        }
+
+        return $p2;
+    }
 }
